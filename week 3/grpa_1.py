@@ -11,3 +11,5 @@ for i in range(1, n+1):
     temp += i
     s += temp
 print(s)
+
+# code by 23f2002268
