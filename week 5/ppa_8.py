@@ -1,3 +1,4 @@
+# f1 = f2 = 1 are the first two fibonacci numbers
 def fibo(n):
     '''
     compute the nth fibonacci number
@@ -7,9 +8,10 @@ def fibo(n):
     Return:
         result: int
     '''
-    term1 , term2 = 0, 1
-    next_term = 0
-    for i in range(n-1):
+    term1 , term2 = 1, 1
+    if n == 1 or n == 2:
+        return term1
+    for i in range(n-2):
         next_term = term1 + term2
         term1 = term2 
         term2 = next_term
