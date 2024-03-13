@@ -1,15 +1,20 @@
-all = dict()
-lens = []
-for _ in range(8):
-    temp = list(map(str, input().split(",")))
-    all[temp[0]] = len(temp)-1
-    lens.append(len(temp)-1)
-    temp = []
-lens = sorted(lens)
-another = dict()
-for j in lens:
-    for i in all.keys():
-        if all[i] == j:
-            another[i] = j
-for i in range(len(another)-1,-1,-1):
-    print(f"{list(another.keys())[i]}:{list(another.values())[i]}")
+def merge(d1: dict, d2: dict, priority: str)->dict:
+    if priority == "first":
+        temp = []
+        for i in d1:
+            for j in d2:
+                if i == j:
+                    temp.append(j)
+        for word in temp:
+            d2.pop(word)
+    else:
+        temp = []
+        for i in d1:
+            for j in d2:
+                if i == j:
+                    temp.append(i)
+        for word in temp:
+            d1.pop(word)
+    d1.update(d2)
+    return d1
+
